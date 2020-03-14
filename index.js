@@ -1,9 +1,7 @@
-const dotenv = require('dotenv');
+require('dotenv').config();
 const Telegraf = require('telegraf');
 const Stage = require('telegraf/stage');
 const session = require('telegraf/session');
-
-dotenv.config();
 
 const mainMenu = require('./scenes/mainMenu');
 const cardMenuWithCard = require('./scenes/cardMenuWithCard');
