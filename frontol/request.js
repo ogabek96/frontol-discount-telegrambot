@@ -4,7 +4,7 @@ const { credentialsToBase64, objectToBase64 } = require('./helpers/base64');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-const getToken = async () => {
+const getTokenObject = async () => {
   try {
     const request = await axios.get(`${process.env.FRONTOL_URL}/token`, {
       headers: {
@@ -13,7 +13,7 @@ const getToken = async () => {
     });
     return request.data;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return null;
   }
 };
@@ -28,17 +28,17 @@ request.interceptors.request.use(
     const newConfing = config;
     let token = cache.get('token');
     if (!token) {
-      const tokenRequest = objectToBase64(await getToken());
+      const tokenRequest = objectToBase64(await getTokenObject());
       if (tokenRequest) {
         cache.put('token', tokenRequest, 1000 * 60 * 45);
         token = tokenRequest;
       }
-      newConfing.headers.Authorization = `Bearer ${token}`;
     }
+    newConfing.headers.Authorization = `Bearer ${token}`;
     return newConfing;
   },
   (error) => {
-    console.log(error);
+    console.error(error);
     Promise.reject(error);
   },
 );
