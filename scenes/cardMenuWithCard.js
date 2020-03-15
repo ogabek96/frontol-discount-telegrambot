@@ -22,6 +22,9 @@ scene.on('callback_query', (ctx) => {
       case 'balance':
         ctx.scene.enter('balance');
         break;
+      case 'eCard':
+        ctx.scene.enter('eCard');
+        break;
       case 'information':
         ctx.scene.enter('information');
         break;

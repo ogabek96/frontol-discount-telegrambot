@@ -12,11 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "canvas": "^2.6.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "i18n": "^0.8.5",
     "js-base64": "^2.5.2",
+    "jsbarcode": "^3.11.0",
     "memory-cache": "^0.2.0",
+    "mongoose": "^5.9.4",
     "telegraf": "^3.36.0"
   },
   "devDependencies": {
