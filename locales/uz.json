@@ -1,0 +1,35 @@
+{
+  "common": {
+    "back": "Orqaga",
+    "backToMainMenu": "Asosiy sahifaga qaytish",
+    "information": "Tafsilotlar",
+    "operationsWithCard": "Karta bilan amaliyotlar bo'limi",
+    "internalServerError": "Serverda ichki xatolik. Iltimos qaytadan urinib ko'ring"
+  },
+  "mainMenu": {
+    "welcomeMsg": "Marjon market botiga xush kelibsiz",
+    "youAreInMainMenu": "Siz asosiy sahifadasiz",
+    "cardMenu": "Marjon market kartasi",
+    "contact": "Aloqaga chiqish",
+    "selectLanguage": "Сменить язык"
+  },
+  "cardMenuWithCard": {
+    "balance": "Qoldiq balans",
+    "unlinkCard": "Kartani botdan uzish"
+  },
+  "cardMenuWithoutCard": {
+    "addCard": "Kartani qo'shish"
+  },
+  "balance": {
+    "yourBalance": "Sizning kartadagi balansingiz: *${balance}*"
+  },
+  "addCard": {
+    "enterCardNumber": "Karta raqamini kiriting",
+    "cardAdded": "Karta qo'shildi",
+    "cardNotFound": "Karta topilmadi."
+  },
+  "unlinkCard": {
+    "cardUnlinked": "Karta botdan uzildi.",
+    "cardUnlinkError": "Kartani uzishda xatolik yuz berdi."
+  }
+}

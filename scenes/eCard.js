@@ -1,14 +1,13 @@
 const Scene = require('telegraf/scenes/base');
 const JsBarcode = require('jsbarcode');
 const { createCanvas } = require('canvas');
-const fs = require('fs');
 const request = require('../frontol/request');
 const User = require('../dbModels/user');
 
 const scene = new Scene('eCard');
 
 scene.enter(async (ctx) => {
-  const telegramId = ctx.update.callback_query.from.id;
+  const telegramId = ctx.from.id;
   try {
     const user = await User.findOne({ telegramId });
     if (user) {

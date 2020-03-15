@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
   },
   cardNumber: {
     type: String,
-    unique: true,
   },
   language: String,
 });

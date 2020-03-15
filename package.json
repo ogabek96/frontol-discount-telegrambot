@@ -20,7 +20,8 @@
     "jsbarcode": "^3.11.0",
     "memory-cache": "^0.2.0",
     "mongoose": "^5.9.4",
-    "telegraf": "^3.36.0"
+    "telegraf": "^3.36.0",
+    "telegraf-i18n": "^6.6.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

@@ -4,16 +4,16 @@ const User = require('../dbModels/user');
 
 const scene = new Scene('mainMenu');
 
-const menu = Extra
+const menu = (ctx) => Extra
   .markup((m) => m.inlineKeyboard([
-    [m.callbackButton('Marjon market kartasi', 'cardMenu')],
-    [m.callbackButton('Aloqaga chiqish', 'contact')],
-    [m.callbackButton('Tilni o\'zgartirish', 'selectLanguage')],
+    [m.callbackButton(ctx.i18n.t('mainMenu.cardMenu'), 'cardMenu')],
+    [m.callbackButton(ctx.i18n.t('mainMenu.contact'), 'contact')],
+    [m.callbackButton(ctx.i18n.t('mainMenu.selectLanguage'), 'selectLanguage')],
   ]));
 
 scene.enter(async (ctx) => {
-  await ctx.reply('Marjon market botiga xush kelibsiz', Extra.markup((m) => m.removeKeyboard()));
-  await ctx.reply('Siz asosiy sahifadasiz', menu);
+  await ctx.reply(ctx.i18n.t('mainMenu.welcomeMsg'), Extra.markup((m) => m.removeKeyboard()));
+  await ctx.reply(ctx.i18n.t('mainMenu.youAreInMainMenu'), menu(ctx));
 });
 
 scene.on('callback_query', async (ctx) => {
@@ -31,8 +31,8 @@ scene.on('callback_query', async (ctx) => {
       case 'contact':
         ctx.scene.enter('contact');
         break;
-      case 'changeLanguage':
-        ctx.scene.enter('changeLanguage');
+      case 'selectLanguage':
+        ctx.scene.enter('selectLanguage');
         break;
       default:
         ctx.scene.enter('mainMenu');
@@ -40,5 +40,4 @@ scene.on('callback_query', async (ctx) => {
     ctx.answerCbQuery();
   }
 });
-
 module.exports = scene;

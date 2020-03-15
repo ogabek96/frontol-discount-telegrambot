@@ -3,16 +3,16 @@ const { Extra } = require('telegraf');
 
 const scene = new Scene('cardMenuWithCard');
 
-const menu = Extra
+const menu = (ctx) => Extra
   .markup((m) => m.inlineKeyboard([
-    [m.callbackButton('Qoldiq balans', 'balance'), m.callbackButton('Elektron karta', 'eCard')],
-    [m.callbackButton('Tafsilotlar', 'information')],
-    [m.callbackButton('Kartani botdan uzish', 'unlinkCard')],
-    [m.callbackButton('Asosiy sahifaga qaytish', 'mainMenu')],
+    [m.callbackButton(ctx.i18n.t('cardMenuWithCard.balance'), 'balance'), m.callbackButton('Elektron karta', 'eCard')],
+    [m.callbackButton(ctx.i18n.t('common.information'), 'information')],
+    [m.callbackButton(ctx.i18n.t('cardMenuWithCard.unlinkCard'), 'unlinkCard')],
+    [m.callbackButton(ctx.i18n.t('common.backToMainMenu'), 'mainMenu')],
   ]));
 
 scene.enter((ctx) => {
-  ctx.reply('Karta bilan amaliyotlar bo\'limi', menu);
+  ctx.reply(ctx.i18n.t('common.operationsWithCard'), menu(ctx));
 });
 
 scene.on('callback_query', (ctx) => {
