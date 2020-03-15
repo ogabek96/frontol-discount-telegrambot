@@ -22,9 +22,9 @@ scene.hears(match('common.back'), async (ctx) => {
 scene.on('text', async (ctx) => {
   try {
     const cardId = ctx.message.text;
-    const req = await request({ url: `/client/${cardId}`, method: 'get' });
+    const clientDataRequest = await request({ url: `/client/${cardId}`, method: 'get' });
     const updatedUser = await User.findOneAndUpdate({ telegramId: ctx.from.id },
-      { cardNumber: req.data.id });
+      { cardNumber: clientDataRequest.data.id });
     if (updatedUser) {
       await ctx.reply(ctx.i18n.t('addCard.cardAdded'));
       await ctx.scene.enter('cardMenuWithCard');

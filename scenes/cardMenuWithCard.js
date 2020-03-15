@@ -5,7 +5,7 @@ const scene = new Scene('cardMenuWithCard');
 
 const menu = (ctx) => Extra
   .markup((m) => m.inlineKeyboard([
-    [m.callbackButton(ctx.i18n.t('cardMenuWithCard.balance'), 'balance'), m.callbackButton('Elektron karta', 'eCard')],
+    [m.callbackButton(ctx.i18n.t('cardMenuWithCard.balance'), 'balance'), m.callbackButton(ctx.i18n.t('cardMenuWithCard.eCard'), 'eCard')],
     [m.callbackButton(ctx.i18n.t('common.information'), 'information')],
     [m.callbackButton(ctx.i18n.t('cardMenuWithCard.unlinkCard'), 'unlinkCard')],
     [m.callbackButton(ctx.i18n.t('common.backToMainMenu'), 'mainMenu')],

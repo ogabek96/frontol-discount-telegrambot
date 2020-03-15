@@ -1,11 +1,39 @@
 {
+  "common": {
+    "back": "Назад",
+    "backToMainMenu": "В основную меню",
+    "information": "Информация",
+    "operationsWithCard": "Операции с картой",
+    "internalServerError": "Внутреняя ошибка. Повторите попытку."
+  },
   "mainMenu": {
-    "cardMenu": "Карта Marjon market"
+    "welcomeMsg": "Добро пожаловать в бот Marjon market",
+    "youAreInMainMenu": "Вы на основном меню",
+    "cardMenu": "Карта Marjon market",
+    "contact": "Обратная связь",
+    "selectLanguage": "Tilni almashtirish"
   },
   "cardMenuWithCard": {
-
+    "balance": "Баланс",
+    "eCard": "Электронная карта",
+    "unlinkCard": "Удалить карту из бота"
   },
   "cardMenuWithoutCard": {
-
+    "addCard": "Добавить карту"
+  },
+  "balance": {
+    "yourBalance": "Ваш баланс на карте состовляет : *${balance}*"
+  },
+  "addCard": {
+    "enterCardNumber": "Введите номер карты",
+    "cardAdded": "Карта добавлена",
+    "cardNotFound": "Карта не найдена"
+  },
+  "unlinkCard": {
+    "cardUnlinked": "Карта удалена из бота",
+    "cardUnlinkError": "Ошибка удалении карты из бота"
+  },
+  "eCard": {
+    "imageError": "Ошибка в генерации изображения. Повторите попытку."
   }
 }

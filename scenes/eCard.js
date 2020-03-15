@@ -11,9 +11,9 @@ scene.enter(async (ctx) => {
   try {
     const user = await User.findOne({ telegramId });
     if (user) {
-      const req = await request({ url: `/client/${user.cardNumber}`, method: 'get' });
+      const clientDataRequest = await request({ url: `/client/${user.cardNumber}`, method: 'get' });
       const canvas = createCanvas();
-      JsBarcode(canvas, req.data.id);
+      JsBarcode(canvas, clientDataRequest.data.id);
       const image = canvas.toBuffer();
       await ctx.replyWithPhoto({
         source: image,
@@ -21,7 +21,7 @@ scene.enter(async (ctx) => {
     }
   } catch (e) {
     console.error(e);
-    ctx.reply('Rasm yaratishda xatolk. Qaytadan urinib ko\'ring');
+    ctx.reply(ctx.i18.t('eCard.imageError'));
   }
   ctx.scene.enter('cardMenuWithCard');
 });

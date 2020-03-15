@@ -15,6 +15,7 @@
   },
   "cardMenuWithCard": {
     "balance": "Qoldiq balans",
+    "eCard": "Elektron karta",
     "unlinkCard": "Kartani botdan uzish"
   },
   "cardMenuWithoutCard": {
@@ -31,5 +32,8 @@
   "unlinkCard": {
     "cardUnlinked": "Karta botdan uzildi.",
     "cardUnlinkError": "Kartani uzishda xatolik yuz berdi."
+  },
+  "eCard": {
+    "imageError": "Rasm yaratishda xatolk. Qaytadan urinib ko'ring"
   }
 }

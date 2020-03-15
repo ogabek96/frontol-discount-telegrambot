@@ -9,8 +9,8 @@ scene.enter(async (ctx) => {
   try {
     const user = await User.findOne({ telegramId });
     if (user) {
-      const req = await request({ url: `/client/${user.cardNumber}`, method: 'get' });
-      await ctx.replyWithMarkdown(ctx.i18n.t('balance.yourBalance', { balance: req.data.bonus }));
+      const clientDataRequest = await request({ url: `/client/${user.cardNumber}`, method: 'get' });
+      await ctx.replyWithMarkdown(ctx.i18n.t('balance.yourBalance', { balance: clientDataRequest.data.bonus }));
     }
   } catch (e) {
     console.error(e);
