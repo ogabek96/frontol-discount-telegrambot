@@ -1,13 +1,18 @@
 require('dotenv').config();
 const Telegraf = require('telegraf');
+const express = require('express');
 const TelegrafI18n = require('telegraf-i18n');
 const Stage = require('telegraf/stage');
 const session = require('telegraf/session');
 
+const expressApp = express();
+
+const { URL, BOT_TOKEN } = process.env;
+const PORT = process.env.PORT || 3000;
+
 const mongoose = require('mongoose');
 
-// mongodb://${process.env.MONGODB_USER}:${encodeURIComponent(process.env.MONGODB_PASS)}@${process.env.MONGODB_HOST}
-mongoose.connect(`mongodb://${process.env.MONGODB_HOST}`,
+mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${encodeURIComponent(process.env.MONGODB_PASS)}@${process.env.MONGODB_HOST}`,
   {
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -29,7 +34,10 @@ const unlinkCard = require('./scenes/unlinkCard');
 const cardMenuWithoutCard = require('./scenes/cardMenuWithoutCard');
 const addCard = require('./scenes/addCard');
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(BOT_TOKEN);
+
+bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
+expressApp.use(bot.webhookCallback(`/bot${BOT_TOKEN}`));
 
 const i18n = new TelegrafI18n({
   useSession: true,
@@ -69,7 +77,6 @@ bot.use(async (ctx, next) => {
   next();
 });
 
-bot.launch()
-  .then(() => {
-    console.log('Telegram bot is running.');
-  });
+expressApp.listen(PORT, () => {
+  console.log('Telegram bot is running');
+});
