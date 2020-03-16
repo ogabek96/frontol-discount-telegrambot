@@ -26,7 +26,7 @@ scene.on('text', async (ctx) => {
     const updatedUser = await User.findOneAndUpdate({ telegramId: ctx.from.id },
       { cardNumber: clientDataRequest.data.id });
     if (updatedUser) {
-      await ctx.reply(ctx.i18n.t('addCard.cardAdded'));
+      await ctx.reply(ctx.i18n.t('addCard.cardAdded'), Extra.markup((m) => m.removeKeyboard()));
       await ctx.scene.enter('cardMenuWithCard');
     }
   } catch (e) {
