@@ -12,7 +12,7 @@ const menu = (ctx) => Extra
   ]));
 
 scene.enter(async (ctx) => {
-  await ctx.reply(ctx.i18n.t('mainMenu.welcomeMsg'), Extra.markup((m) => m.removeKeyboard()));
+  await ctx.reply(ctx.i18n.t('mainMenu.welcomeMsg'));
   await ctx.reply(ctx.i18n.t('mainMenu.youAreInMainMenu'), menu(ctx));
 });
 
