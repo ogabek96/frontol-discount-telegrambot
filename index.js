@@ -10,7 +10,6 @@ const expressApp = express();
 const { URL, BOT_TOKEN } = process.env;
 const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
-console.log(process.env);
 mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${encodeURIComponent(process.env.MONGODB_PASS)}@${process.env.MONGODB_HOST}`,
   {
     useCreateIndex: true,
